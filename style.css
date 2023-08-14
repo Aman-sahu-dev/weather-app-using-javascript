@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica','montserrat', sans-serif;
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    color: white;
+    height: 10vh;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+#logo{
+    height: 60px;
+}
+
+/* City box */
+#citybox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+.location{
+    min-width: 250px;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.location .city {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.location .date {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+input{
+    width: 100%;
+    border-radius: 5px;
+    max-width: 280px;
+    padding: 7px 15px;
+    font-size: 20px;
+    font-weight: 300;
+    outline: none;
+}
+
+#cloud{
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    min-width: 250px;
+    align-items: center;
+    border: 1px solid black;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#cloudicon img{
+    position: relative;
+    top: -15px;
+}
+.temp {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+#temp{
+    font-size: 2.8rem;
+}
+#temp span{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.temp span {
+    font-weight: 500;
+}
+
+.weather {
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+/* Card design */
+.app-wrap {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+.card{
+    min-height: 150px;
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-weight: 600;
+    margin: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.icon{
+    height: 70px;
+    width: 70px;
+    margin-top: 10px;
+    border: 1px solid black;
+}
