@@ -32,10 +32,8 @@ header {
 }
 .location{
     min-width: 250px;
-    /* border: 1px solid black; */
     padding: 20px;
     border-radius: 10px;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 .location .city {
     font-size: 32px;
@@ -64,9 +62,7 @@ input{
     display: flex;
     min-width: 250px;
     align-items: center;
-    /* border: 1px solid black; */
     flex-direction: column;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 #cloudicon img{
     position: relative;
@@ -122,6 +118,12 @@ input{
     margin-top: 10px;
     box-sizing: border-box;
 }
+#tempicon{
+    scale: 0.8;
+}
+#humicon{
+    scale: 0.8;
+}
 
 @media only screen and (max-width: 600px) {
     header {
@@ -135,19 +137,32 @@ input{
     #citybox{
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
         align-items: center;
         justify-content: center;
-        margin: 20px;
+        margin-bottom: 0;
+    }
+    #cloud{
+        display: flex;
+        min-width: 250px;
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
     }
     .card{
         min-height: 150px;
-        width: 200px;
+        width: 120px;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 10px;
         font-weight: 600;
         margin: 15px;
+    }
+    .location{
+        padding: 0;
+    }
+    .weather{
+        position: relative;
+        top: -30px;
     }
   }
