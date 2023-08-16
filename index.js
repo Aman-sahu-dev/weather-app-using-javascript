@@ -1,3 +1,7 @@
+window.addEventListener("load", (event) => {
+    getResults('new york');
+  });
+
 const api = {
     key: "36dd267ebc8442164b40cabe86763f6f",
     base: "https://api.openweathermap.org/data/2.5/"
@@ -16,8 +20,40 @@ function getResults(query) {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
         .then(weather => {
             return weather.json();
-        }).then(displayResults);
+        }).then(displayResults)
+        .catch(error => {
+            alert('Please enter city name correctly');
+        });
 }
+const cityInput = document.getElementsByClassName('search-box')[0];
+const suggestions = document.getElementById('suggestions');
+
+cityInput.addEventListener('input', () => {
+    const searchText = cityInput.value.trim();
+    suggestions.innerHTML = '';
+
+    if (searchText) {
+        const apiUrl = `https://api.teleport.org/api/cities/?search=${searchText}&limit=5`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                data._embedded['city:search-results'].forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item.matching_full_name;
+                    li.addEventListener('click', () => {
+                        cityInput.value = item.matching_full_name;
+                        suggestions.innerHTML = '';
+                    });
+                    suggestions.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                alert('Error fetching data. Please check the console for more details.');
+            });
+    }
+});
 
 function displayResults(weather) {
 
@@ -42,7 +78,7 @@ function displayResults(weather) {
     icon.innerHTML = `<img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png">`;
     hilow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
     humidity.innerText = `${weather.main.humidity}%`;
-    visibility.innerText = `${weather.visibility/1000} km`;
+    visibility.innerText = `${weather.visibility / 1000} km`;
     windspeed.innerText = `${weather.wind.speed}m/s`;
     pressure.innerText = `${weather.main.pressure} hPa`;
 

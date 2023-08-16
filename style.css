@@ -166,3 +166,14 @@ input{
         top: -30px;
     }
   }
+  ul{
+    background-color: white;
+    max-width: 250px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+li{
+    list-style: none;
+    max-height: 1.5rem;
+    overflow: hidden;
+}
